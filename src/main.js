@@ -38,7 +38,9 @@ const searchHeandler = searchText => {
       console.error(error);
       showErrorMessage('Error while executing request');
     })
-    .finally(render.hideLoader);
+    .finally(() => {
+      render.hideLoader();
+    });
 };
 
 function validate(searchText) {
