@@ -22,9 +22,8 @@ const searchHeandler = searchText => {
 
   pixabay
     .getImagesByQuery(searchText)
-    .then(res => {
-      render.hideLoader();
-      const images = res.data.hits;
+    .then(data => {
+      const images = data.hits;
 
       if (images.length === 0) {
         showErrorMessage(
@@ -36,9 +35,10 @@ const searchHeandler = searchText => {
       }
     })
     .catch(error => {
-      render.hideLoader();
+      console.error(error);
       showErrorMessage('Error while executing request');
-    });
+    })
+    .finally(render.hideLoader);
 };
 
 function validate(searchText) {

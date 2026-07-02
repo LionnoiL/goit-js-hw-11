@@ -16,7 +16,7 @@ export function createGallery(images) {
       img =>
         `<li class="gallery-item">
             <a href="${img.largeImageURL}">
-                <img class="gallery-image" src="${img.webformatURL}" alt="${img.name}">
+                <img class="gallery-image" src="${img.webformatURL}" alt="${img.tags}">
             </a>
             <div class="gallery-item-legend">
               <div class="gallery-legend-values-block">
